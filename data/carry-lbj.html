@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carry LeBron James</title>
+</head>
+
+<svg height="525" width="1200"></svg>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.19.0/d3-legend.js"></script>
+<script src="utils.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="carry_lbj.css"></link>
+
+<script>
+
+	var barChartContainer = d3.select("svg"),
+        graphMargins = {top: 30, right: 0, bottom: 80, left: 50};
+
+    var graphWidth = +barChartContainer.attr("width") - graphMargins.left - graphMargins.right;
+    var graphHeight = +barChartContainer.attr("height") - graphMargins.top - graphMargins.bottom;
+
+    var graphContainer = barChartContainer.append("g")
+        .attr("transform", translate(graphMargins.left, graphMargins.top));
+
+    var timeToWidth = d3.scaleLinear().rangeRound([0, graphWidth]).domain([0, 2880]);
+
+	d3.json("ind-cle.json", function(data) {
+
+        var utahData = data['cle'];
+
+		graphContainer.selectAll(".dot")
+			      	.data(utahData)
+			    	.enter()
+			    	.append("circle")
+                    .attr("r", function(d) {
+                        if (d.points == 1) {
+                          return 3;
+                        } else if (d.points == 2) {
+                          return 4;
+                        } else {
+                          return 5;
+                        }
+                    })
+                    .attr("cx", function(d) { return timeToWidth(d.timestamp) })
+			      	.attr("cy", graphHeight * .25)
+                    .attr("class", function(d) {
+                        var player = d.player.replace(/\s/g, '');
+                        if (d.assist != null && d.assist == 'LeBron James') {
+                            return 'LeBronJamesAssist'
+                        }
+                        return player;
+                    })
+
+
+        var lacData = data['ind'];
+
+		graphContainer.selectAll(".dot")
+			      	.data(lacData)
+			    	.enter()
+			    	.append("circle")
+                    .attr("r", function(d) {
+                        if (d.points == 1) {
+                          return 3;
+                        } else if (d.points == 2) {
+                          return 4;
+                        } else {
+                          return 5;
+                        }
+                    })
+                    .attr("cx", function(d) { return timeToWidth(d.timestamp) })
+			      	.attr("cy", graphHeight * .75)
+                    .attr("class", function(d) { return d.player.replace(/\s/g, '');})
+
+	} );
+
+</script>

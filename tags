@@ -1,0 +1,62 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BeautifulSoup	scripts/collect_team_stats.py	/^from bs4 import BeautifulSoup, Comment$/;"	i
+Comment	scripts/collect_team_stats.py	/^from bs4 import BeautifulSoup, Comment$/;"	i
+Flask	extensions.py	/^from flask import Flask$/;"	i
+GAMES_IN_SEASON	scripts/collect_team_stats.py	/^GAMES_IN_SEASON = 82.0$/;"	v
+Results	models/results.py	/^class Results(db.Model):$/;"	c
+Results	scripts/create_tables.py	/^from models.results import Results$/;"	i
+SQLAlchemy	extensions.py	/^from flask_sqlalchemy import SQLAlchemy$/;"	i
+Stats	models/stats.py	/^class Stats(db.Model):$/;"	c
+Stats	scripts/collect_team_stats.py	/^from models.stats import Stats$/;"	i
+Stats	scripts/create_tables.py	/^from models.stats import Stats$/;"	i
+Team	models/teams.py	/^class Team(db.Model):$/;"	c
+Team	scripts/collect_team_stats.py	/^from models.teams import Team$/;"	i
+Team	scripts/create_tables.py	/^from models.teams import Team$/;"	i
+__init__	models/results.py	/^    def __init__(self, team_id, game_num, opp_id, points_for, points_against, season):$/;"	m	class:Results
+__init__	models/stats.py	/^    def __init__(self, team_id, season, off_rtg, def_rtg, pace, pt_diff):$/;"	m	class:Stats
+__init__	models/teams.py	/^    def __init__(self, name):$/;"	m	class:Team
+__tablename__	models/results.py	/^    __tablename__ = 'results'$/;"	v	class:Results
+__tablename__	models/stats.py	/^    __tablename__ = 'stats'$/;"	v	class:Stats
+__tablename__	models/teams.py	/^    __tablename__ = 'teams'$/;"	v	class:Team
+_extract_team_name_from_columns	scripts/collect_team_stats.py	/^def _extract_team_name_from_columns(columns):$/;"	f
+_scrape_team_ratings	scripts/collect_team_stats.py	/^def _scrape_team_ratings(team):$/;"	f
+add	models/stats.py	/^    def add(cls, stats):$/;"	m	class:Stats
+app	extensions.py	/^app = Flask(__name__)$/;"	v
+comment_to_table_rows	scripts/collect_team_stats.py	/^def comment_to_table_rows(html_scraper, table_id):$/;"	f
+db	extensions.py	/^db = SQLAlchemy()$/;"	v
+db	models/results.py	/^from extensions import db$/;"	i
+db	models/stats.py	/^from extensions import db$/;"	i
+db	models/teams.py	/^from extensions import db$/;"	i
+db	scripts/create_tables.py	/^from extensions import db$/;"	i
+def_rtg	models/stats.py	/^    def_rtg = db.Column(db.Float)$/;"	v	class:Stats
+defaultdict	scripts/collect_team_stats.py	/^from collections import defaultdict$/;"	i
+game_num	models/results.py	/^    game_num = db.Column(db.Integer)$/;"	v	class:Results
+get_id_by_name	models/teams.py	/^    def get_id_by_name(cls, name):$/;"	m	class:Team
+get_name_by_id	models/teams.py	/^    def get_name_by_id(cls, team_id):$/;"	m	class:Team
+get_or_create	models/teams.py	/^    def get_or_create(cls, name):$/;"	m	class:Team
+get_team_stats_html	scripts/collect_team_stats.py	/^def get_team_stats_html(season):$/;"	f
+id	models/results.py	/^    id = db.Column(db.Integer, primary_key=True)$/;"	v	class:Results
+id	models/stats.py	/^    id = db.Column(db.Integer, primary_key=True)$/;"	v	class:Stats
+id	models/teams.py	/^    id = db.Column(db.Integer, primary_key=True)$/;"	v	class:Team
+name	models/teams.py	/^    name = db.Column(db.String(128), index=True)$/;"	v	class:Team
+off_rtg	models/stats.py	/^    off_rtg = db.Column(db.Float)$/;"	v	class:Stats
+opp_id	models/results.py	/^    opp_id = db.Column(db.Integer)$/;"	v	class:Results
+pace	models/stats.py	/^    pace = db.Column(db.Float)$/;"	v	class:Stats
+points_against	models/results.py	/^    points_against = db.Column(db.Integer)$/;"	v	class:Results
+points_for	models/results.py	/^    points_for = db.Column(db.Integer)$/;"	v	class:Results
+pt_diff	models/stats.py	/^    pt_diff = db.Column(db.Float)$/;"	v	class:Stats
+requests	scripts/collect_team_stats.py	/^import requests$/;"	i
+scrape	scripts/collect_team_stats.py	/^def scrape():$/;"	f
+scrape_pt_diff	scripts/collect_team_stats.py	/^def scrape_pt_diff(team_stats, opp_stats):$/;"	f
+scrape_team_point_data	scripts/collect_team_stats.py	/^def scrape_team_point_data(team_data, point_type):$/;"	f
+scrape_team_stats	scripts/collect_team_stats.py	/^def scrape_team_stats(html):$/;"	f
+season	models/results.py	/^    season = db.Column(db.String(40))$/;"	v	class:Results
+season	models/stats.py	/^    season = db.Column(db.String(128))$/;"	v	class:Stats
+team_id	models/results.py	/^    team_id = db.Column(db.Integer)$/;"	v	class:Results
+team_id	models/stats.py	/^    team_id = db.Column(db.Integer)$/;"	v	class:Stats
+url	scripts/collect_team_stats.py	/^url = 'http:\/\/www.basketball-reference.com\/leagues\/NBA_{0}.html'$/;"	v
